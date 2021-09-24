@@ -7,10 +7,52 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
 	<title>Testing viewports</title>
-
+  <style>
+    html {
+      min-height: 100vh;
+      background-color: black;
+      color: white;
+      overflow-y: hidden;
+    }
+    body {
+      display: grid;
+      background-color: yellow;
+      color: black;
+      margin: 0em;
+    }
+    .context-bar {
+      top: 0;
+      left: 0;
+      background-color: red;
+      width: 100%;
+      --height: 3em;
+      position: absolute;
+      top: calc( 100vh - var(--height) );
+      color: white;
+      height: var(--height);
+      transition: transform 1s;
+    }
+    .context-bar.show {
+      transform: translateY(0%);
+    }
+    .context-bar.hide {
+      transform: translateY(100%);
+    }
+  </style>
 </head>
   <body>
     <h1>Yowzer</h1>
+    
+  	<div id="yowzer" class="context-bar show">
+			<span> I am a context bar <button id="hide">Hide</button></span>
+      <script>
+        hide.onclick = function(){
+          yowzer.classList.replace('show', 'hide')
+          setTimeout( () => yowzer.classList.replace('hide', 'show'), 2000 )
+        }
+      
+      </script>
+  	</div>
   </body>
 
 </html>
