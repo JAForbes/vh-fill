@@ -20,6 +20,7 @@
       background-color: yellow;
       color: black;
       margin: 0em;
+	min-height: 150vh;
     }
     .context-bar {
       top: 0;
@@ -57,6 +58,7 @@
 	window.onresize = function(){
 	  document.body.style.setProperty('--vh', `${window.innerHeight / 100}px`)
 	}
+	window.onresize()
       </script>
   	</div>
   </body>
