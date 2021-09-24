@@ -23,19 +23,19 @@
 	min-height: 100vh;
     }
     .context-bar {
-      top: 0;
+      bottom: 0em;
       left: 0;
       background-color: red;
       width: 100%;
       --height: 3em;
       position: fixed;
-      bottom: 0em;
+      
       color: white;
       height: var(--height);
       transition: transform 1s;
     }
     .context-bar.show {
-      transform: translateY(0%);
+      transform: translateY(-100%);
     }
     .context-bar.hide {
       transform: translateY(100%);
@@ -55,10 +55,10 @@
           yowzer.classList.replace('show', 'hide')
           setTimeout( () => yowzer.classList.replace('hide', 'show'), 2000 )
         }
-	window.onresize = function(){
-	  document.body.style.setProperty('--vh', `${window.innerHeight / 100}px`)
-	}
-	window.onresize()
+// 	window.onresize = function(){
+// 	  document.body.style.setProperty('--vh', `${window.innerHeight / 100}px`)
+// 	}
+// 	window.onresize()
       </script>
   	</div>
   </body>
