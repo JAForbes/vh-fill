@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,12 +47,31 @@
     <h1>Yowzer</h1>
     
   	<div id="yowzer" class="context-bar show">
-			<span> I am a context bar <button id="hide">Hide</button></span>
+			<span> 
+        I am a context bar 
+        <button id="hide">Hide</button> 
+        <button id="refresh">Refresh</button>
+      </span>
       <script>
         hide.onclick = function(){
           yowzer.classList.replace('show', 'hide')
           setTimeout( () => yowzer.classList.replace('hide', 'show'), 2000 )
         }
+        refresh.onclick = function(){
+          let x = new URLSearchParams(window.location.search)
+          let v = x.v
+          v = v || 0
+          v = ++v
+          x.set('v', v)
+          
+          let url = 
+            window.location.origin 
+            + window.location.pathname 
+            + '?' + x
+          history.replaceState('', null, url)
+          window.location.href = window.location.href
+        }
+        
       
       </script>
   	</div>
